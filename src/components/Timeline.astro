@@ -1,0 +1,69 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  experiences: CollectionEntry<'experience'>[];
+}
+
+const { experiences } = Astro.props;
+
+const formatDate = (dateStr: string) => {
+  const [year, month] = dateStr.split('-');
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return `${months[parseInt(month) - 1]} ${year}`;
+};
+---
+
+<section aria-labelledby="experience-heading" class="px-6 py-24 sm:px-12 lg:px-24">
+  <div class="mx-auto max-w-5xl">
+    <p class="font-mono text-xs tracking-[0.3em] uppercase text-amber-600 dark:text-amber-400 mb-3">
+      Career Path
+    </p>
+    <h2
+      id="experience-heading"
+      class="text-3xl font-bold tracking-tight sm:text-4xl"
+    >
+      Experience
+    </h2>
+
+    <ol class="relative mt-16 ml-4 border-l-2 border-[var(--color-cream-3)] dark:border-[var(--color-surface-3)]">
+      {experiences.map((exp, idx) => (
+        <li class="group relative mb-12 ml-8 last:mb-0">
+          <div class="absolute -left-[2.55rem] top-1 h-4 w-4 rounded-full border-2 border-amber-500 bg-[var(--color-cream-0)] dark:bg-[var(--color-surface-0)] group-hover:bg-amber-500 transition-colors duration-200" aria-hidden="true"></div>
+
+          <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
+            <h3 class="text-lg font-bold leading-snug">{exp.data.role}</h3>
+            <span class="text-sm font-medium text-amber-600 dark:text-amber-400">{exp.data.company}</span>
+          </div>
+
+          <div class="mt-1.5 flex items-center gap-3 text-xs text-[var(--color-surface-2)] dark:text-[var(--color-cream-2)]">
+            <time>
+              {formatDate(exp.data.startDate)} — {exp.data.endDate ? formatDate(exp.data.endDate) : 'Present'}
+            </time>
+            <span aria-hidden="true">&middot;</span>
+            <span>{exp.data.location}</span>
+          </div>
+
+          <ul class="mt-4 space-y-2">
+            {exp.data.achievements.map((achievement) => (
+              <li class="relative pl-5 text-sm leading-relaxed text-[var(--color-surface-2)] dark:text-[var(--color-cream-2)]">
+                <span class="absolute left-0 top-[0.55rem] h-1 w-1 rounded-full bg-amber-500" aria-hidden="true"></span>
+                {achievement}
+              </li>
+            ))}
+          </ul>
+
+          {exp.data.technologies && (
+            <div class="mt-4 flex flex-wrap gap-2">
+              {exp.data.technologies.map((tech) => (
+                <span class="rounded-sm bg-[var(--color-cream-2)] px-2 py-0.5 font-mono text-[10px] tracking-wider text-[var(--color-surface-1)] dark:bg-[var(--color-surface-2)] dark:text-[var(--color-cream-2)]">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )}
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

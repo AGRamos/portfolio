@@ -1,0 +1,13 @@
+{
+  "role": "Senior Salesforce Developer & Technical Lead",
+  "company": "TechCorp Global",
+  "startDate": "2022-03",
+  "location": "Madrid, Spain",
+  "achievements": [
+    "Architected and delivered multi-cloud Salesforce solutions serving 50K+ end users across Sales Cloud, Service Cloud, and Experience Cloud",
+    "Led a cross-functional team of 8 developers, establishing CI/CD pipelines and code review standards that reduced deployment failures by 65%",
+    "Pioneered the adoption of Agentforce AI agents within the org, automating 40% of tier-1 support cases",
+    "Designed reusable LWC component library (30+ components) adopted across 4 business units"
+  ],
+  "technologies": ["LWC", "Apex", "Agentforce", "Salesforce Flow", "SOQL", "SFDX"]
+}

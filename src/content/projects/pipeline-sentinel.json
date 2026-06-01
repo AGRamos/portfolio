@@ -1,0 +1,9 @@
+{
+  "title": "Pipeline Sentinel",
+  "description": "CI/CD monitoring dashboard that tracks deployment health across Salesforce orgs, providing real-time alerts and rollback capabilities.",
+  "technologies": ["Python", "Docker", "GitHub Actions", "SFDX", "React"],
+  "github": "https://github.com/username/pipeline-sentinel",
+  "live": "https://pipeline-sentinel.demo.example.com",
+  "featured": true,
+  "order": 3
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Agentforce Case Router",
+  "description": "AI-powered case routing system built on Salesforce Agentforce that uses NLP to classify and assign support cases, reducing average handle time by 35%.",
+  "technologies": ["Agentforce", "Apex", "LWC", "Flow", "NLP"],
+  "github": "https://github.com/username/agentforce-case-router",
+  "live": "https://case-router.demo.example.com",
+  "featured": true,
+  "order": 1
+}
