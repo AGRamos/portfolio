@@ -3,6 +3,8 @@
 @theme {
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
   --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Fraunces", "DM Sans", Georgia, "Times New Roman", serif;
+  --font-eyebrow: "JetBrains Mono", ui-monospace, monospace;
 
   --color-amber-50: #fffbeb;
   --color-amber-100: #fef3c7;
@@ -19,11 +21,16 @@
   --color-surface-1: #141416;
   --color-surface-2: #1e1e22;
   --color-surface-3: #2a2a2f;
+  --color-surface-rule: #232328;
 
   --color-cream-0: #fafaf8;
   --color-cream-1: #f5f4f0;
   --color-cream-2: #eae9e3;
   --color-cream-3: #dbd9d0;
+  --color-cream-rule: #d8d6cd;
+
+  --color-ink-soft: #2a2a2f;
+  --color-ink-mute: #4a4a52;
 }
 
 html {
@@ -34,6 +41,7 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "ss02", "cv11";
 }
 
 .dark body {
@@ -54,4 +62,90 @@ body {
 .dark ::selection {
   background-color: var(--color-amber-500);
   color: var(--color-surface-0);
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    font-feature-settings: "ss01", "ss02", "ss03";
+  }
+  .font-eyebrow {
+    font-family: var(--font-eyebrow);
+  }
+
+  .grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .vline-r {
+    position: relative;
+  }
+  .vline-r::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--color-cream-rule);
+  }
+  .dark .vline-r::after {
+    background: var(--color-surface-rule);
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.cursor-blink::after {
+  content: "_";
+  font-family: var(--font-mono);
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  color: var(--color-amber-500);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-up.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

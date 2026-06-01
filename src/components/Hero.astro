@@ -1,46 +1,125 @@
 ---
+const stats = [
+  { value: '9+', label: 'Years building' },
+  { value: '40+', label: 'Enterprise projects' },
+  { value: '50K', label: 'Users impacted' },
+  { value: '4×', label: 'Certifications' },
+];
+
+const rotating = ['autonomous AI systems', 'scalable cloud architectures', 'agentic Salesforce experiences', 'elegant web interfaces'];
 ---
 
-<section aria-labelledby="hero-heading" class="relative flex min-h-[90vh] flex-col justify-center px-6 py-24 sm:px-12 lg:px-24">
-  <div class="mx-auto w-full max-w-5xl">
-    <p class="font-mono text-sm tracking-widest text-amber-600 dark:text-amber-400 mb-4">
-      &gt; Hello, world
-    </p>
-    <h1
-      id="hero-heading"
-      class="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-7xl"
-    >
-      Senior Salesforce
-      <br />
-      Developer & Technical
-      <br />
-      <span class="text-amber-600 dark:text-amber-400">Lead</span>
-    </h1>
-    <p class="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-surface-2)] dark:text-[var(--color-cream-2)] sm:text-xl">
-      Building autonomous AI systems and scalable cloud architectures. I craft
-      elegant solutions at the intersection of Salesforce, AI, and modern web development.
-    </p>
-    <div class="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
-      <a
-        href="/cv.pdf"
-        class="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--color-surface-0)] px-7 py-3.5 text-sm font-medium tracking-wide text-[var(--color-cream-0)] transition-all duration-200 hover:bg-amber-600 dark:bg-[var(--color-cream-0)] dark:text-[var(--color-surface-0)] dark:hover:bg-amber-500"
-      >
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v3a2 2 0 002 2h14a2 2 0 002-2v-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Download CV
-      </a>
-      <a
-        href="#contact"
-        class="inline-flex items-center justify-center gap-2 rounded-sm border border-[var(--color-surface-2)] px-7 py-3.5 text-sm font-medium tracking-wide transition-all duration-200 hover:border-[var(--color-surface-0)] hover:bg-[var(--color-surface-0)] hover:text-[var(--color-cream-0)] dark:border-[var(--color-cream-3)] dark:text-[var(--color-cream-0)] dark:hover:border-[var(--color-cream-0)] dark:hover:bg-[var(--color-cream-0)] dark:hover:text-[var(--color-surface-0)]"
-      >
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Contact Me
-      </a>
+<section aria-labelledby="hero-heading" class="relative flex min-h-[90vh] flex-col justify-center px-6 pt-24 pb-16 sm:px-12 lg:px-16">
+  <div class="mx-auto w-full max-w-7xl">
+    <div class="grid grid-cols-12 gap-y-12 lg:gap-x-8">
+      <div class="col-span-12 lg:col-span-2 fade-up" style="transition-delay: 0ms;">
+        <p class="font-eyebrow text-[10px] tracking-[0.35em] uppercase text-amber-600 dark:text-amber-400">
+          № 01 / Portfolio
+        </p>
+        <p class="mt-2 font-eyebrow text-[10px] tracking-[0.2em] uppercase text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
+          Madrid — CET
+        </p>
+      </div>
+
+      <div class="col-span-12 lg:col-span-7 fade-up" style="transition-delay: 100ms;">
+        <p class="font-eyebrow text-xs tracking-widest text-amber-600 dark:text-amber-400">
+          &gt; Hello, world_
+        </p>
+        <h1
+          id="hero-heading"
+          class="mt-6 font-display text-[clamp(2.75rem,8vw,7.5rem)] font-light leading-[0.95] tracking-[-0.04em]"
+        >
+          Senior<br />
+          <span class="italic font-normal text-amber-600 dark:text-amber-400">Salesforce</span><br />
+          Developer<br />
+          <span class="text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">&amp; Technical Lead.</span>
+        </h1>
+
+        <p class="mt-8 max-w-xl text-lg leading-relaxed text-[var(--color-ink-soft)] dark:text-[var(--color-cream-2)]">
+          I build
+          <span class="font-eyebrow text-sm text-amber-700 dark:text-amber-400" data-rotating>
+            autonomous AI systems
+          </span>
+          <span data-typed-cursor class="cursor-blink text-amber-500"></span>
+          for ambitious teams &mdash; blending Salesforce, AI, and modern web architecture into products people actually enjoy using.
+        </p>
+
+        <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <a
+            href="/cv.pdf"
+            class="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-sm border border-[var(--color-surface-0)] bg-[var(--color-surface-0)] px-7 py-3.5 text-sm font-medium tracking-wide text-[var(--color-cream-0)] transition-all duration-300 hover:border-amber-500 hover:bg-amber-500 dark:border-[var(--color-cream-0)] dark:bg-[var(--color-cream-0)] dark:text-[var(--color-surface-0)] dark:hover:border-amber-500 dark:hover:bg-amber-500 dark:hover:text-[var(--color-surface-0)]"
+          >
+            <span class="relative z-10">Download CV</span>
+            <svg class="h-4 w-4 relative z-10 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v3a2 2 0 002 2h14a2 2 0 002-2v-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a
+            href="#contact"
+            class="group inline-flex items-center gap-2 px-3 py-3.5 text-sm font-medium tracking-wide text-[var(--color-ink-soft)] transition-colors duration-300 hover:text-amber-600 dark:text-[var(--color-cream-2)] dark:hover:text-amber-400"
+          >
+            <span class="font-eyebrow text-[10px] tracking-[0.3em] uppercase text-amber-600 dark:text-amber-400 transition-colors group-hover:text-amber-500">
+              →
+            </span>
+            <span class="border-b border-current pb-0.5">Get in touch</span>
+          </a>
+        </div>
+      </div>
+
+      <aside class="col-span-12 lg:col-span-3 lg:border-l lg:border-[var(--color-cream-rule)] lg:dark:border-[var(--color-surface-rule)] lg:pl-8 fade-up" style="transition-delay: 220ms;">
+        <p class="font-eyebrow text-[10px] tracking-[0.3em] uppercase text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
+          By the numbers
+        </p>
+        <dl class="mt-6 space-y-5">
+          {stats.map((s) => (
+            <div class="group">
+              <dt class="font-display text-4xl font-light leading-none tracking-tight text-[var(--color-surface-0)] dark:text-[var(--color-cream-0)] sm:text-5xl">
+                {s.value}
+              </dt>
+              <dd class="mt-1 text-xs font-medium text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
+                {s.label}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </aside>
     </div>
   </div>
 
-  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce" aria-hidden="true">
-    <svg class="h-6 w-6 text-[var(--color-surface-2)] dark:text-[var(--color-cream-2)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-      <path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
+  <div class="absolute bottom-8 left-6 hidden items-center gap-3 sm:flex sm:left-12 lg:left-16" aria-hidden="true">
+    <div class="h-px w-12 bg-[var(--color-ink-mute)] dark:bg-[var(--color-cream-3)]"></div>
+    <span class="font-eyebrow text-[10px] tracking-[0.3em] uppercase text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">Scroll</span>
   </div>
 </section>
+
+<script define:vars={{ phrases: rotating }}>
+  const el = document.querySelector('[data-rotating]');
+  if (el) {
+    let i = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const tick = () => {
+      const phrase = phrases[i];
+      const current = el.textContent || '';
+      if (!deleting) {
+        el.textContent = phrase.slice(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === phrase.length) {
+          deleting = true;
+          setTimeout(tick, 1800);
+          return;
+        }
+      } else {
+        el.textContent = phrase.slice(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          deleting = false;
+          i = (i + 1) % phrases.length;
+        }
+      }
+      const delay = deleting ? 30 : 60;
+      setTimeout(tick, delay);
+    };
+
+    setTimeout(tick, 800);
+  }
+</script>
