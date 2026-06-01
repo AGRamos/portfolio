@@ -2,7 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import Hero from '../components/Hero.astro';
+import Now from '../components/Now.astro';
 import Timeline from '../components/Timeline.astro';
+import Skills from '../components/Skills.astro';
 import Projects from '../components/Projects.astro';
 import Contact from '../components/Contact.astro';
 import { getCollection } from 'astro:content';
@@ -13,9 +15,11 @@ const projects = await getCollection('projects');
 
 <Layout title="Portfolio — Senior Salesforce Developer & Technical Lead" description="Personal portfolio and resume showcasing Salesforce development, AI systems, and modern web architecture.">
   <ThemeToggle />
-  <main>
+  <main class="grain">
     <Hero />
+    <Now />
     <Timeline experiences={experiences} />
+    <Skills />
     <Projects projects={projects} />
     <Contact />
   </main>

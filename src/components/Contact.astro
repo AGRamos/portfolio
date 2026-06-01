@@ -1,58 +1,76 @@
 ---
+const socials = [
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/username', handle: '/in/username' },
+  { label: 'GitHub', href: 'https://github.com/username', handle: '/username' },
+];
 ---
 
-<section id="contact" aria-labelledby="contact-heading" class="px-6 py-24 sm:px-12 lg:px-24 border-t border-[var(--color-cream-3)] dark:border-[var(--color-surface-3)]">
-  <div class="mx-auto max-w-5xl">
-    <p class="font-mono text-xs tracking-[0.3em] uppercase text-amber-600 dark:text-amber-400 mb-3">
-      Get in Touch
-    </p>
-    <h2
-      id="contact-heading"
-      class="text-3xl font-bold tracking-tight sm:text-4xl"
-    >
-      Let's Build Something
-    </h2>
-    <p class="mt-4 max-w-xl text-[var(--color-surface-2)] dark:text-[var(--color-cream-2)]">
-      Have a project in mind or want to discuss opportunities? I'm always open
-      to interesting conversations and collaborations.
-    </p>
+<section id="contact" aria-labelledby="contact-heading" class="relative border-t border-[var(--color-cream-rule)] dark:border-[var(--color-surface-rule)] px-6 py-24 sm:px-12 lg:px-16">
+  <div class="mx-auto w-full max-w-7xl">
+    <div class="grid grid-cols-12 gap-y-10 lg:gap-x-8">
+      <div class="col-span-12 lg:col-span-3 fade-up">
+        <p class="font-eyebrow text-[10px] tracking-[0.35em] uppercase text-amber-600 dark:text-amber-400">
+          № 06 / Contact
+        </p>
+        <h2 id="contact-heading" class="mt-3 font-display text-4xl font-light tracking-tight sm:text-5xl">
+          Let's<br />
+          <span class="italic text-amber-600 dark:text-amber-400">talk</span>.
+        </h2>
+      </div>
 
-    <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-      <a
-        href="mailto:hello@example.com"
-        class="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--color-surface-0)] px-7 py-3.5 text-sm font-medium tracking-wide text-[var(--color-cream-0)] transition-all duration-200 hover:bg-amber-600 dark:bg-[var(--color-cream-0)] dark:text-[var(--color-surface-0)] dark:hover:bg-amber-500"
-      >
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Say Hello
-      </a>
-      <div class="flex items-center gap-6">
+      <div class="col-span-12 lg:col-span-9 fade-up" style="transition-delay: 120ms;">
+        <p class="max-w-2xl text-lg leading-relaxed text-[var(--color-ink-soft)] dark:text-[var(--color-cream-2)] sm:text-xl">
+          I take on a small number of engagements each year &mdash; full-time roles, advisory work, and the occasional collaboration. If you're building something interesting, I'd love to hear about it.
+        </p>
+
         <a
-          href="https://linkedin.com/in/username"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn profile"
-          class="text-[var(--color-surface-2)] transition-colors hover:text-amber-600 dark:text-[var(--color-cream-2)] dark:hover:text-amber-400"
+          href="mailto:hello@example.com"
+          class="group mt-10 inline-flex items-baseline gap-3 font-display text-2xl font-light tracking-tight text-[var(--color-surface-0)] transition-colors hover:text-amber-600 dark:text-[var(--color-cream-0)] dark:hover:text-amber-400 sm:text-3xl lg:text-4xl"
         >
-          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span class="border-b-2 border-current pb-1 transition-colors group-hover:border-amber-500">
+            hello@example.com
+          </span>
+          <svg class="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M7 7h10v10" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </a>
-        <a
-          href="https://github.com/username"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub profile"
-          class="text-[var(--color-surface-2)] transition-colors hover:text-amber-600 dark:text-[var(--color-cream-2)] dark:hover:text-amber-400"
-        >
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
+
+        <ul class="mt-16 grid grid-cols-1 gap-px sm:grid-cols-2">
+          {socials.map((s) => (
+            <li>
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${s.label} profile`}
+                class="group/social flex items-baseline justify-between border-t border-[var(--color-cream-rule)] py-5 transition-colors hover:border-amber-500 dark:border-[var(--color-surface-rule)]"
+              >
+                <div>
+                  <p class="font-eyebrow text-[10px] tracking-[0.3em] uppercase text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
+                    {s.label}
+                  </p>
+                  <p class="mt-1 font-display text-xl font-light tracking-tight transition-colors group-hover/social:text-amber-600 dark:group-hover/social:text-amber-400">
+                    {s.handle}
+                  </p>
+                </div>
+                <svg class="h-4 w-4 text-[var(--color-ink-mute)] transition-all group-hover/social:translate-x-1 group-hover/social:-translate-y-1 group-hover/social:text-amber-500 dark:text-[var(--color-cream-3)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M7 17L17 7M7 7h10v10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<footer class="border-t border-[var(--color-cream-3)] dark:border-[var(--color-surface-3)] px-6 py-8 sm:px-12 lg:px-24">
-  <div class="mx-auto max-w-5xl flex flex-col items-center justify-between gap-2 text-xs text-[var(--color-surface-2)] dark:text-[var(--color-cream-2)] sm:flex-row">
-    <p>&copy; {new Date().getFullYear()} Portfolio. All rights reserved.</p>
-    <p class="font-mono tracking-wider">
+<footer class="border-t border-[var(--color-cream-rule)] dark:border-[var(--color-surface-rule)] px-6 py-10 sm:px-12 lg:px-16">
+  <div class="mx-auto max-w-7xl flex flex-col items-start justify-between gap-4 text-xs text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)] sm:flex-row sm:items-center">
+    <p class="font-eyebrow text-[10px] tracking-[0.2em] uppercase">
+      &copy; {new Date().getFullYear()} &mdash; All rights reserved
+    </p>
+    <p class="font-eyebrow text-[10px] tracking-[0.2em] uppercase">
       Built with <span class="text-amber-500">Astro</span> + <span class="text-amber-500">Tailwind</span>
     </p>
   </div>

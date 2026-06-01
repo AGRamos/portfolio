@@ -26,4 +26,19 @@ const label = 'Toggle theme';
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
     });
   }
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+  } else {
+    document.querySelectorAll('.fade-up').forEach((el) => el.classList.add('in'));
+  }
 </script>
