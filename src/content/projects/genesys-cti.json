@@ -1,0 +1,8 @@
+{
+  "title": "Genesys CTI Integration",
+  "description": "Deployed the Genesys CX Cloud connector on Salesforce Service Cloud, surfacing real-time call transcriptions to the support team and unifying the agent desktop.",
+  "summary": "Real-time CTI connector",
+  "technologies": ["Genesys CX Cloud", "Service Cloud", "Open CTI", "Apex", "LWC"],
+  "featured": true,
+  "order": 2
+}

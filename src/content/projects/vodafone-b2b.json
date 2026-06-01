@@ -1,0 +1,7 @@
+{
+  "title": "Vodafone B2B SaaS Migration",
+  "description": "Led the technical workstream at Vodafone IT Spain, transforming legacy on-premise systems into a SaaS model on Salesforce with Vlocity / OmniStudio.",
+  "summary": "On-prem to SaaS",
+  "technologies": ["Vlocity", "OmniStudio", "Sales Cloud", "Service Cloud", "B2B Commerce"],
+  "order": 4
+}

@@ -3,32 +3,32 @@ const skills = [
   {
     category: 'Salesforce',
     level: 95,
-    items: ['Apex', 'LWC', 'Flow', 'Agentforce', 'SOQL', 'SFDX', 'Platform Events'],
+    items: ['Apex', 'LWC', 'Aura', 'Flows', 'SOQL/SOSL', 'REST/SOAP APIs', 'Lightning App Builder'],
   },
   {
-    category: 'AI & Agents',
+    category: 'AI & Agentforce',
+    level: 88,
+    items: ['Agentforce', 'Agent Orchestration', 'Einstein', 'Prompt Design', 'WhatsApp / Messaging Channels'],
+  },
+  {
+    category: 'Salesforce Clouds',
+    level: 92,
+    items: ['Sales Cloud', 'Service Cloud', 'Experience Cloud', 'Marketing Cloud', 'Vlocity / OmniStudio'],
+  },
+  {
+    category: 'DevOps & Quality',
     level: 85,
-    items: ['LLM Orchestration', 'MCP', 'RAG', 'Vector DBs', 'Prompt Engineering', 'NLP'],
+    items: ['Azure DevOps', 'GitHub Actions', 'SFDX', 'CI/CD Pipelines', 'Code Review Standards'],
   },
   {
-    category: 'Backend',
-    level: 80,
-    items: ['Python', 'Node.js', 'REST/SOAP', 'PostgreSQL', 'Redis', 'Docker'],
-  },
-  {
-    category: 'Frontend',
-    level: 78,
-    items: ['TypeScript', 'React', 'Astro', 'Tailwind', 'Web Components'],
-  },
-  {
-    category: 'DevOps',
-    level: 75,
-    items: ['GitHub Actions', 'Jenkins', 'AWS', 'CI/CD', 'Terraform', 'Monitoring'],
+    category: 'Integration',
+    level: 87,
+    items: ['Genesys CTI', 'Payment Gateways', 'WhatsApp Business', 'Composite Resources', 'Platform Events'],
   },
   {
     category: 'Leadership',
-    level: 88,
-    items: ['Technical Strategy', 'Mentoring', 'Code Review', 'Architecture', 'Stakeholder Mgmt'],
+    level: 90,
+    items: ['Tech Lead', 'Project Management', 'Cross-functional Coordination', 'Mentoring', 'Stakeholder Mgmt'],
   },
 ];
 ---
@@ -45,7 +45,7 @@ const skills = [
           <span class="italic text-amber-600 dark:text-amber-400">matrix</span>
         </h2>
         <p class="mt-4 max-w-xs text-sm leading-relaxed text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
-          A self-assessed map of where I spend my time. Levels reflect daily fluency, not theoretical knowledge.
+          Self-assessed map of where I spend my time. Levels reflect daily fluency, not theoretical knowledge.
         </p>
       </div>
 
@@ -74,7 +74,7 @@ const skills = [
               </span>
             </div>
 
-            <ul class="mt-5 flex flex-wrap gap-1.5">
+            <ul class="mt-5 flex flex-wrap gap-x-3 gap-y-1.5">
               {s.items.map((item) => (
                 <li class="font-eyebrow text-[10px] tracking-wider text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
                   <span class="text-amber-500">·</span> {item}

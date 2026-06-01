@@ -1,9 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <defs>
-    <pattern id="grain" x="0" y="0" width="1200" height="630" patternUnits="userSpaceOnUse">
-      <rect width="1200" height="630" fill="#0a0a0b"/>
-    </pattern>
-  </defs>
   <rect width="1200" height="630" fill="#0a0a0b"/>
   <line x1="80" y1="80" x2="80" y2="550" stroke="#232328" stroke-width="1"/>
   <line x1="1120" y1="80" x2="1120" y2="550" stroke="#232328" stroke-width="1"/>
@@ -12,7 +7,7 @@
 
   <text x="80" y="130" font-family="JetBrains Mono, monospace" font-size="14" letter-spacing="6" fill="#f59e0b">№ 01 / PORTFOLIO</text>
 
-  <text x="80" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="120" font-weight="300" fill="#fafaf8">Senior</text>
-  <text x="80" y="440" font-family="Georgia, 'Times New Roman', serif" font-size="120" font-weight="400" font-style="italic" fill="#f59e0b">Salesforce</text>
-  <text x="80" y="530" font-family="Georgia, 'Times New Roman', serif" font-size="80" font-weight="300" fill="#dbd9d0">Developer &amp; Lead</text>
+  <text x="80" y="280" font-family="Georgia, 'Times New Roman', serif" font-size="100" font-weight="300" fill="#fafaf8">Alejandro</text>
+  <text x="80" y="390" font-family="Georgia, 'Times New Roman', serif" font-size="100" font-weight="400" font-style="italic" fill="#f59e0b">Garrido</text>
+  <text x="80" y="500" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="300" fill="#dbd9d0">Senior Salesforce Developer</text>
 </svg>

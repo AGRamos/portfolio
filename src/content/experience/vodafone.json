@@ -1,0 +1,13 @@
+{
+  "role": "Specialist IT Design & Development in Salesforce",
+  "company": "Vodafone",
+  "startDate": "2022-07",
+  "endDate": "2023-09",
+  "location": "Madrid, Spain",
+  "achievements": [
+    "Coordinated the technical workstream of the Vodafone IT Spain B2B development team",
+    "Led the transformation of legacy on-premise systems to a SaaS model on Salesforce",
+    "Designed and delivered new B2B processes on Sales Cloud, Service Cloud, and Vlocity"
+  ],
+  "technologies": ["Apex", "LWC", "Vlocity / OmniStudio", "Sales Cloud", "Service Cloud", "B2B Commerce"]
+}

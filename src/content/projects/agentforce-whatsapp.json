@@ -1,0 +1,8 @@
+{
+  "title": "Agentforce for WhatsApp",
+  "description": "Pioneering Agentforce implementation that orchestrates WhatsApp conversations and routes them to AI agents for autonomous student support at Universidad Europea.",
+  "summary": "AI agent on WhatsApp",
+  "technologies": ["Agentforce", "Apex", "LWC", "WhatsApp API", "Flows"],
+  "featured": true,
+  "order": 1
+}

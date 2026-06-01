@@ -1,23 +1,42 @@
 ---
 const stats = [
-  { value: '9+', label: 'Years building' },
-  { value: '40+', label: 'Enterprise projects' },
-  { value: '50K', label: 'Users impacted' },
-  { value: '4×', label: 'Certifications' },
+  { value: '5+', label: 'Years on Salesforce' },
+  { value: '4', label: 'Salesforce clouds' },
+  { value: '4', label: 'Active certifications' },
+  { value: '1st', label: 'Tech hire on UE team' },
 ];
 
-const rotating = ['autonomous AI systems', 'scalable cloud architectures', 'agentic Salesforce experiences', 'elegant web interfaces'];
+const rotating = [
+  'Agentforce-powered AI agents',
+  'multi-cloud Salesforce ecosystems',
+  'WhatsApp & Genesys integrations',
+  'Experience Cloud portals',
+];
 ---
 
-<section aria-labelledby="hero-heading" class="relative flex min-h-[90vh] flex-col justify-center px-6 pt-24 pb-16 sm:px-12 lg:px-16">
-  <div class="mx-auto w-full max-w-7xl">
+<section aria-labelledby="hero-heading" class="relative flex min-h-[90vh] flex-col justify-center overflow-hidden px-6 pt-24 pb-16 sm:px-12 lg:px-16">
+  <div class="pointer-events-none absolute inset-0 -z-0" aria-hidden="true">
+    <svg class="absolute inset-0 h-full w-full opacity-[0.07] dark:opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="hero-grid" x="0" y="0" width="64" height="64" patternUnits="userSpaceOnUse">
+          <path d="M 64 0 L 0 0 0 64" fill="none" stroke="currentColor" stroke-width="0.5" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hero-grid)" class="text-[var(--color-surface-0)] dark:text-[var(--color-cream-0)]" />
+    </svg>
+
+    <div class="absolute -top-32 -right-32 h-[28rem] w-[28rem] rounded-full bg-amber-500/15 blur-3xl dark:bg-amber-500/10"></div>
+    <div class="absolute -bottom-40 -left-32 h-[24rem] w-[24rem] rounded-full bg-amber-400/10 blur-3xl dark:bg-amber-400/5"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto w-full max-w-7xl">
     <div class="grid grid-cols-12 gap-y-12 lg:gap-x-8">
       <div class="col-span-12 lg:col-span-2 fade-up" style="transition-delay: 0ms;">
         <p class="font-eyebrow text-[10px] tracking-[0.35em] uppercase text-amber-600 dark:text-amber-400">
           № 01 / Portfolio
         </p>
         <p class="mt-2 font-eyebrow text-[10px] tracking-[0.2em] uppercase text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
-          Madrid — CET
+          Alcorcón, Madrid
         </p>
         <div class="mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5">
           <span class="relative flex h-2 w-2">
@@ -25,7 +44,7 @@ const rotating = ['autonomous AI systems', 'scalable cloud architectures', 'agen
             <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
           </span>
           <span class="font-eyebrow text-[9px] tracking-[0.2em] uppercase text-emerald-700 dark:text-emerald-400">
-            Available
+            Open to work
           </span>
         </div>
       </div>
@@ -38,19 +57,17 @@ const rotating = ['autonomous AI systems', 'scalable cloud architectures', 'agen
           id="hero-heading"
           class="mt-6 font-display text-[clamp(2.75rem,8vw,7.5rem)] font-light leading-[0.95] tracking-[-0.04em]"
         >
-          Senior<br />
-          <span class="italic font-normal text-amber-600 dark:text-amber-400">Salesforce</span><br />
-          Developer<br />
-          <span class="text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">&amp; Technical Lead.</span>
+          Alejandro<br />
+          <span class="italic font-normal text-amber-600 dark:text-amber-400">Garrido</span><span class="text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">.</span>
         </h1>
 
-        <p class="mt-8 max-w-xl text-lg leading-relaxed text-[var(--color-ink-soft)] dark:text-[var(--color-cream-2)]">
-          I build
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-ink-soft)] dark:text-[var(--color-cream-2)]">
+          Senior Salesforce Developer &amp; Project Manager crafting
           <span class="font-eyebrow text-sm text-amber-700 dark:text-amber-400" data-rotating>
-            autonomous AI systems
+            Agentforce-powered AI agents
           </span>
           <span data-typed-cursor class="cursor-blink text-amber-500"></span>
-          for ambitious teams &mdash; blending Salesforce, AI, and modern web architecture into products people actually enjoy using.
+          and full-stack LWC experiences for ambitious teams.
         </p>
 
         <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">

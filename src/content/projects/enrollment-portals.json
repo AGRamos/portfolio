@@ -1,0 +1,7 @@
+{
+  "title": "Experience Cloud Enrollment Portals",
+  "description": "Designed and built multiple student enrollment portals on Experience Cloud, handling thousands of student records across programs with a self-service UX.",
+  "summary": "Student self-service",
+  "technologies": ["Experience Cloud", "LWC", "Apex", "Lightning App Builder"],
+  "order": 5
+}
