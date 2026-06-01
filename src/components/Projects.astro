@@ -1,0 +1,39 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  projects: CollectionEntry<'projects'>[];
+}
+
+const { projects } = Astro.props;
+
+const sorted = [...projects].sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+---
+
+<section aria-labelledby="projects-heading" class="px-6 py-24 sm:px-12 lg:px-24">
+  <div class="mx-auto max-w-5xl">
+    <p class="font-mono text-xs tracking-[0.3em] uppercase text-amber-600 dark:text-amber-400 mb-3">
+      Selected Work
+    </p>
+    <h2
+      id="projects-heading"
+      class="text-3xl font-bold tracking-tight sm:text-4xl"
+    >
+      Projects
+    </h2>
+
+    <div class="mt-16 grid gap-6 grid-cols-1 md:grid-cols-2">
+      {sorted.map((project) => (
+        <ProjectCard
+          title={project.data.title}
+          description={project.data.description}
+          technologies={project.data.technologies}
+          github={project.data.github}
+          live={project.data.live}
+          featured={project.data.featured}
+        />
+      ))}
+    </div>
+  </div>
+</section>

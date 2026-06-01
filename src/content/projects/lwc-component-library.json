@@ -1,0 +1,8 @@
+{
+  "title": "LWC Component Library",
+  "description": "Enterprise-grade Lightning Web Component library with 30+ accessible, themeable components. Includes Storybook-style documentation site built with Astro.",
+  "technologies": ["LWC", "Apex", "Salesforce", "Storybook", "Astro"],
+  "github": "https://github.com/username/lwc-component-library",
+  "featured": true,
+  "order": 2
+}
