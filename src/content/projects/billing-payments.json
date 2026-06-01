@@ -1,0 +1,8 @@
+{
+  "title": "Subscription Billing & Payments",
+  "description": "Built the integration for direct-debit and credit-card subscription models, supporting recurring tuition payment flows and reconciliation back to Salesforce.",
+  "summary": "Tuition billing engine",
+  "technologies": ["Apex", "REST API", "Payment Gateway", "Flows", "LWC"],
+  "featured": true,
+  "order": 3
+}

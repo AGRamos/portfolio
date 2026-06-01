@@ -29,6 +29,7 @@ const fullImage = new URL(image, Astro.site ?? 'https://example.com').toString()
     <link rel="canonical" href={canonicalURL.toString()} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Writing" href="/rss.xml" />
     <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)" />
     <meta name="color-scheme" content="light dark" />

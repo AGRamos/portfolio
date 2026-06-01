@@ -1,7 +1,0 @@
-{
-  "title": "ETL Data Bridge",
-  "description": "Automated ETL pipeline bridging Salesforce and SAP, processing 1M+ daily transactions with zero-downtime blue-green deployments.",
-  "technologies": ["Python", "Salesforce", "SAP", "Docker", "PostgreSQL"],
-  "github": "https://github.com/username/etl-data-bridge",
-  "order": 4
-}

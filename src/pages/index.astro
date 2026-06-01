@@ -1,13 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import ScrollProgress from '../components/ScrollProgress.astro';
 import Hero from '../components/Hero.astro';
 import Now from '../components/Now.astro';
 import Timeline from '../components/Timeline.astro';
 import Skills from '../components/Skills.astro';
 import Projects from '../components/Projects.astro';
 import Certifications from '../components/Certifications.astro';
-import Testimonials from '../components/Testimonials.astro';
 import Contact from '../components/Contact.astro';
 import { getCollection } from 'astro:content';
 
@@ -15,8 +15,9 @@ const experiences = await getCollection('experience');
 const projects = await getCollection('projects');
 ---
 
-<Layout title="Portfolio — Senior Salesforce Developer & Technical Lead" description="Personal portfolio and resume showcasing Salesforce development, AI systems, and modern web architecture.">
+<Layout title="Alejandro Garrido — Senior Salesforce Developer & Technical Lead" description="Senior Salesforce Developer and Project Manager building Agentforce-powered AI systems, multi-cloud ecosystems, and full-stack LWC experiences.">
   <ThemeToggle />
+  <ScrollProgress />
   <main class="grain">
     <Hero />
     <Now />
@@ -24,7 +25,6 @@ const projects = await getCollection('projects');
     <Skills />
     <Projects projects={projects} />
     <Certifications />
-    <Testimonials />
     <Contact />
   </main>
 </Layout>

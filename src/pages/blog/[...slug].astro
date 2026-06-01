@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ScrollProgress from '../../components/ScrollProgress.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Layout title={`${post.data.title} — Alejandro Garrido`} description={post.data.description}>
+  <ScrollProgress />
+  <main class="grain min-h-screen px-6 py-24 sm:px-12 lg:px-16">
+    <article class="mx-auto w-full max-w-3xl">
+      <a href="/blog/" class="inline-flex items-center gap-2 font-eyebrow text-[10px] tracking-[0.2em] uppercase text-[var(--color-ink-mute)] transition-colors hover:text-amber-600 dark:text-[var(--color-cream-3)] dark:hover:text-amber-400">
+        <span>←</span> All writing
+      </a>
+
+      <header class="mt-12">
+        <p class="font-eyebrow text-[10px] tracking-[0.2em] uppercase text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
+          <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+          {post.data.tags.length > 0 && (
+            <span> · {post.data.tags.join(' · ')}</span>
+          )}
+        </p>
+        <h1 class="mt-4 font-display text-4xl font-light leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+          {post.data.title}
+        </h1>
+        <p class="mt-4 text-lg leading-relaxed text-[var(--color-ink-soft)] dark:text-[var(--color-cream-2)]">
+          {post.data.description}
+        </p>
+      </header>
+
+      <div class="prose mt-12 max-w-none text-[var(--color-ink-soft)] dark:text-[var(--color-cream-2)]">
+        <Content />
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style is:global>
+  .prose h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-display);
+    font-size: 1.875rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--color-surface-0);
+  }
+  .dark .prose h2 { color: var(--color-cream-0); }
+  .prose h3 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 500;
+    color: var(--color-surface-0);
+  }
+  .dark .prose h3 { color: var(--color-cream-0); }
+  .prose p { margin-bottom: 1.25rem; line-height: 1.75; }
+  .prose a {
+    color: var(--color-amber-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .dark .prose a { color: var(--color-amber-400); }
+  .prose a:hover { color: var(--color-amber-500); }
+  .prose code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--color-cream-2);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.125rem;
+  }
+  .dark .prose code { background: var(--color-surface-2); }
+  .prose pre {
+    background: var(--color-surface-1);
+    color: var(--color-cream-0);
+    padding: 1rem 1.25rem;
+    border-radius: 0.25rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  .dark .prose pre { background: var(--color-surface-0); border: 1px solid var(--color-surface-rule); }
+  .prose pre code { background: transparent; padding: 0; color: inherit; }
+  .prose ul, .prose ol { margin: 1rem 0 1.5rem 1.5rem; }
+  .prose li { margin-bottom: 0.5rem; line-height: 1.7; }
+  .prose ul { list-style: none; }
+  .prose ul li::before {
+    content: "·";
+    color: var(--color-amber-500);
+    font-weight: 700;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+  .prose blockquote {
+    border-left: 2px solid var(--color-amber-500);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--color-ink-mute);
+  }
+  .dark .prose blockquote { color: var(--color-cream-3); }
+</style>

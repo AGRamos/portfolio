@@ -1,0 +1,12 @@
+{
+  "role": "Junior Software Developer",
+  "company": "WIRIS (Math)",
+  "startDate": "2020-10",
+  "endDate": "2021-08",
+  "location": "Madrid, Spain",
+  "achievements": [
+    "Joined as a junior developer working on the WIRIS Math product suite used by educational publishers worldwide",
+    "Built features across the full stack and contributed to the SaaS platform's reliability and performance"
+  ],
+  "technologies": ["Java", "JavaScript", "SaaS", "Math/STEM tooling"]
+}

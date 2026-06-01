@@ -1,0 +1,15 @@
+{
+  "role": "Senior Salesforce Developer",
+  "company": "Universidad Europea",
+  "startDate": "2023-09",
+  "location": "Madrid, Spain",
+  "achievements": [
+    "First technical hire on the Salesforce team — established the development ecosystem, best practices, and architecture from zero",
+    "Designed the CI/CD strategy with Azure DevOps and GitHub Actions, automating deployments and enforcing code quality",
+    "Built multiple student enrollment portals on Experience Cloud, serving thousands of students across programs",
+    "Deployed the Genesys CX Cloud connector for real-time call transcriptions to the support team (CTI integration)",
+    "Developed the direct-debit and credit-card subscription billing integration for tuition payment flows",
+    "Pioneered Agentforce for WhatsApp at the university, orchestrating AI agents to handle student conversations autonomously"
+  ],
+  "technologies": ["Apex", "LWC", "Agentforce", "Flows", "Experience Cloud", "Sales Cloud", "Service Cloud", "Marketing Cloud", "Azure DevOps", "GitHub Actions"]
+}

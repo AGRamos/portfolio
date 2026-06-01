@@ -1,9 +1,10 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
+import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: 'https://portfolio.example.com',
+  site: 'https://agramos.github.io/portfolio-opencode',
   vite: {
     plugins: [tailwindcss()],
   },
@@ -12,5 +13,6 @@ export default defineConfig({
       changefreq: 'monthly',
       priority: 0.7,
     }),
+    mdx(),
   ],
 });

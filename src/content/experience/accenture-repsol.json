@@ -1,0 +1,12 @@
+{
+  "role": "Salesforce Advanced App Engineering Analyst",
+  "company": "Accenture — Repsol",
+  "startDate": "2021-08",
+  "endDate": "2022-07",
+  "location": "Madrid, Spain",
+  "achievements": [
+    "Worked on the Repsol account within Accenture's Salesforce practice",
+    "Delivered custom Salesforce solutions and integrations as part of a multidisciplinary consulting team"
+  ],
+  "technologies": ["Apex", "LWC", "Sales Cloud", "Service Cloud", "Integration APIs"]
+}
