@@ -13,33 +13,37 @@ A blazing-fast, fully responsive personal portfolio and resume website built wit
 
 ```
 src/
-├── components/
-│   ├── Hero.astro            # Hero section with headline + CTAs
-│   ├── Timeline.astro        # Vertical experience/CV timeline
-│   ├── ProjectCard.astro    # Individual project card
-│   ├── Projects.astro        # Projects gallery grid
-│   ├── Contact.astro         # Contact section + footer
-│   └── ThemeToggle.astro     # Dark/light mode toggle button
+├── assets/                    # Imported via astro:assets (hero portrait)
+├── components/                # 11 sections: Hero, Now, Timeline, Education,
+│                              #   Skills, Projects, Certifications,
+│                              #   Testimonials, Contact, ThemeToggle, ScrollProgress
 ├── content/
-│   ├── experience/            # JSON files per role
-│   └── projects/              # JSON files per project
+│   ├── experience/             # JSON files per role
+│   ├── projects/               # JSON files per project
+│   └── blog/                   # .md / .mdx writing
 ├── layouts/
-│   └── Layout.astro           # Base HTML layout with theme script
+│   └── Layout.astro            # Base HTML layout with theme script
 ├── pages/
-│   └── index.astro            # Main page assembling all sections
+│   ├── index.astro             # Main page assembling all sections
+│   ├── 404.astro
+│   ├── blog/
+│   │   ├── index.astro         # Writing index
+│   │   └── [...slug].astro     # Post template
+│   └── rss.xml.ts              # RSS feed (excludes drafts)
 ├── styles/
-│   └── global.css             # Tailwind v4 + custom design tokens
-└── content.config.ts          # Astro content collection schemas
+│   └── global.css              # Tailwind v4 + custom design tokens
+└── content.config.ts           # Astro content collection schemas
 ```
 
 ## Content Management
 
-All portfolio content lives in JSON files under `src/content/`. To add or update:
+All portfolio content lives under `src/content/`. To add or update:
 
 - **Experience** — Add/edit JSON files in `src/content/experience/`. Each entry supports `role`, `company`, `startDate`, `endDate`, `location`, `achievements`, and `technologies`.
-- **Projects** — Add/edit JSON files in `src/content/projects/`. Each entry supports `title`, `description`, `technologies`, `github`, `live`, `featured`, and `order`.
+- **Projects** — Add/edit JSON files in `src/content/projects/`. Each entry supports `title`, `description`, `technologies`, `github`, `live`, `featured`, `order`, and `summary`.
+- **Writing** — Add `.md` or `.mdx` files in `src/content/blog/`. Frontmatter: `title`, `description`, `pubDate`, `updatedDate?`, `draft`, `tags`. Set `draft: true` to hide from `/blog/` and `/rss.xml`.
 
-No need to touch any component code — just edit the JSON.
+No need to touch any component code — just edit the data files.
 
 ## Commands
 

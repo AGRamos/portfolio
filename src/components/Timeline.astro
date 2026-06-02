@@ -7,6 +7,10 @@ interface Props {
 
 const { experiences } = Astro.props;
 
+const sorted = [...experiences].sort(
+  (a, b) => b.data.startDate.localeCompare(a.data.startDate),
+);
+
 const formatDate = (dateStr: string) => {
   const [year, month] = dateStr.split('-');
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -32,11 +36,11 @@ const getYear = (dateStr: string) => dateStr.split('-')[0];
       </div>
 
       <ol class="col-span-12 lg:col-span-9 fade-up" style="transition-delay: 120ms;">
-        {experiences.map((exp, idx) => (
+        {sorted.map((exp, idx) => (
           <li class="group relative grid grid-cols-12 gap-4 border-b border-[var(--color-cream-rule)] py-10 first:border-t-0 last:border-b-0 transition-colors duration-300 dark:border-[var(--color-surface-rule)] sm:gap-6 sm:py-12">
             <div class="col-span-12 sm:col-span-3">
               <p class="font-eyebrow text-[10px] tracking-[0.3em] uppercase text-amber-600 dark:text-amber-400">
-                {String(idx + 1).padStart(2, '0')} / {experiences.length}
+                {String(idx + 1).padStart(2, '0')} / {sorted.length}
               </p>
               <p class="mt-2 font-display text-5xl font-light leading-none tracking-tight text-[var(--color-surface-0)] dark:text-[var(--color-cream-0)] sm:text-6xl">
                 {getYear(exp.data.startDate)}
