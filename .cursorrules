@@ -6,7 +6,7 @@ Strictly adhere to the following technical constraints:
 ## Tech Stack Rules
 - **Astro**: Use semantic `.astro` components. Maximize Static Site Generation (SSG). Keep client-side JS to absolute zero unless strictly necessary (like the light/dark toggle).
 - **Tailwind CSS**: Use utility classes following a mobile-first approach. Implement dark mode using the `class` strategy.
-- **Content Collections**: All data (experience, projects) must be fetched via `getCollection` from `src/content/`. Do not hardcode content inside components.
+- **Content Collections**: All data (experience, projects, blog) must be fetched via `getCollection` from `src/content/`. Do not hardcode content inside components. Schemas live in `src/content.config.ts`.
 
 ## Performance & Accessibility (a11y)
 - Target 100/100 scores in Lighthouse (Performance, Accessibility, Best Practices, SEO).

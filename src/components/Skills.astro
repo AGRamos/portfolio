@@ -2,35 +2,41 @@
 const skills = [
   {
     category: 'Salesforce',
-    level: 95,
+    proficiency: 'primary',
     items: ['Apex', 'LWC', 'Aura', 'Flows', 'SOQL/SOSL', 'REST/SOAP APIs', 'Lightning App Builder'],
   },
   {
     category: 'AI & Agentforce',
-    level: 88,
+    proficiency: 'frequent',
     items: ['Agentforce', 'Agent Orchestration', 'Einstein', 'Prompt Design', 'WhatsApp / Messaging Channels'],
   },
   {
     category: 'Salesforce Clouds',
-    level: 92,
+    proficiency: 'primary',
     items: ['Sales Cloud', 'Service Cloud', 'Experience Cloud', 'Marketing Cloud', 'Vlocity / OmniStudio'],
   },
   {
     category: 'DevOps & Quality',
-    level: 85,
+    proficiency: 'frequent',
     items: ['Azure DevOps', 'GitHub Actions', 'SFDX', 'CI/CD Pipelines', 'Code Review Standards'],
   },
   {
     category: 'Integration',
-    level: 87,
+    proficiency: 'frequent',
     items: ['Genesys CTI', 'Payment Gateways', 'WhatsApp Business', 'Composite Resources', 'Platform Events'],
   },
   {
     category: 'Leadership',
-    level: 90,
+    proficiency: 'primary',
     items: ['Tech Lead', 'Project Management', 'Cross-functional Coordination', 'Mentoring', 'Stakeholder Mgmt'],
   },
-];
+] as const;
+
+const tierLabel: Record<typeof skills[number]['proficiency'], { text: string; class: string }> = {
+  primary: { text: 'Primary', class: 'text-amber-600 dark:text-amber-400' },
+  frequent: { text: 'Frequent', class: 'text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]' },
+  working: { text: 'Working knowledge', class: 'text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)] italic' },
+};
 ---
 
 <section aria-labelledby="skills-heading" class="relative border-t border-[var(--color-cream-rule)] dark:border-[var(--color-surface-rule)] px-6 py-24 sm:px-12 lg:px-16">
@@ -45,7 +51,7 @@ const skills = [
           <span class="italic text-amber-600 dark:text-amber-400">matrix</span>
         </h2>
         <p class="mt-4 max-w-xs text-sm leading-relaxed text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
-          Self-assessed map of where I spend my time. Levels reflect daily fluency, not theoretical knowledge.
+          Self-assessed map of where I spend my time. Tiers reflect daily fluency, not theoretical knowledge.
         </p>
       </div>
 
@@ -61,18 +67,9 @@ const skills = [
               </span>
             </div>
 
-            <div class="mt-5 flex items-center gap-3">
-              <div class="relative h-1 flex-1 overflow-hidden bg-[var(--color-cream-2)] dark:bg-[var(--color-surface-3)]">
-                <div
-                  class="absolute inset-y-0 left-0 origin-left scale-x-0 bg-amber-500 transition-transform duration-1000 ease-out group-[.in]:scale-x-100"
-                  style={`--target-scale: ${s.level / 100}; transition-delay: ${i * 80 + 200}ms;`}
-                  data-fill={s.level}
-                ></div>
-              </div>
-              <span class="font-display text-sm font-medium tabular-nums text-amber-600 dark:text-amber-400">
-                {s.level}<span class="text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">%</span>
-              </span>
-            </div>
+            <p class={`mt-4 font-eyebrow text-[10px] tracking-[0.3em] uppercase ${tierLabel[s.proficiency].class}`}>
+              {tierLabel[s.proficiency].text}
+            </p>
 
             <ul class="mt-5 flex flex-wrap gap-x-3 gap-y-1.5">
               {s.items.map((item) => (
@@ -87,20 +84,3 @@ const skills = [
     </div>
   </div>
 </section>
-
-<script>
-  const fillBars = document.querySelectorAll('[data-fill]');
-  if (fillBars.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const el = entry.target as HTMLElement;
-          const fill = parseFloat(el.dataset.fill || '0') / 100;
-          el.style.transform = `scaleX(${fill})`;
-          observer.unobserve(el);
-        }
-      });
-    }, { threshold: 0.2 });
-    fillBars.forEach((el) => observer.observe(el));
-  }
-</script>
