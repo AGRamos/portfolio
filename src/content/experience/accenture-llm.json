@@ -1,0 +1,13 @@
+{
+  "role": "Fullstack LLM Development Specialist",
+  "company": "Accenture",
+  "startDate": "2026-06",
+  "location": "Madrid, Spain",
+  "achievements": [
+    "Joined Accenture's AI Engineering practice to architect and ship full-stack LLM-powered applications at enterprise scale",
+    "Building agentic workflows and retrieval-augmented generation pipelines for global clients",
+    "Bridging Salesforce ecosystem expertise with modern AI/ML tooling to deliver end-to-end intelligent solutions"
+  ],
+  "technologies": ["Python", "LangChain", "LLM APIs", "Agentforce", "RAG", "Apex", "LWC", "Salesforce"],
+  "order": 1
+}

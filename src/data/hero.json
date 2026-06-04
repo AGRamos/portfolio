@@ -3,12 +3,12 @@
     { "value": "5+", "label": "Years on Salesforce" },
     { "value": "4", "label": "Salesforce clouds" },
     { "value": "4", "label": "Active certifications" },
-    { "value": "1st", "label": "Tech hire on UE team" }
+    { "value": "6+", "label": "Years building platforms" }
   ],
   "rotating": [
-    "Agentforce-powered AI agents",
+    "LLM-powered enterprise agents",
+    "Agentforce & RAG pipelines",
     "multi-cloud Salesforce ecosystems",
-    "WhatsApp & Genesys integrations",
-    "Experience Cloud portals"
+    "full-stack agentic experiences"
   ]
 }
