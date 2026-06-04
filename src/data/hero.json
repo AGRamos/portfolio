@@ -1,0 +1,14 @@
+{
+  "stats": [
+    { "value": "5+", "label": "Years on Salesforce" },
+    { "value": "4", "label": "Salesforce clouds" },
+    { "value": "4", "label": "Active certifications" },
+    { "value": "1st", "label": "Tech hire on UE team" }
+  ],
+  "rotating": [
+    "Agentforce-powered AI agents",
+    "multi-cloud Salesforce ecosystems",
+    "WhatsApp & Genesys integrations",
+    "Experience Cloud portals"
+  ]
+}

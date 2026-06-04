@@ -1,10 +1,13 @@
 ---
-const certs = [
-  { name: 'Salesforce Certified Administrator', issuer: 'Salesforce', year: '2023' },
-  { name: 'Salesforce Certified Platform Developer', issuer: 'Salesforce', year: '2023' },
-  { name: 'Salesforce Certified Agentforce Specialist', issuer: 'Salesforce', year: '2023' },
-  { name: 'Salesforce Certified Platform App Builder', issuer: 'Salesforce', year: '2023' },
-];
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  certifications: CollectionEntry<'certifications'>[];
+}
+
+const { certifications } = Astro.props;
+
+const sorted = [...certifications].sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 ---
 
 <section aria-labelledby="cert-heading" class="relative border-t border-[var(--color-cream-rule)] dark:border-[var(--color-surface-rule)] px-6 py-24 sm:px-12 lg:px-16">
@@ -24,7 +27,7 @@ const certs = [
       </div>
 
       <ul class="col-span-12 lg:col-span-9 fade-up" style="transition-delay: 120ms;">
-        {certs.map((cert, i) => (
+        {sorted.map((cert, i) => (
           <li class="group grid grid-cols-12 items-baseline gap-4 border-b border-[var(--color-cream-rule)] py-6 first:border-t-0 last:border-b-0 transition-colors hover:bg-[var(--color-cream-1)] sm:gap-6 sm:py-7 dark:border-[var(--color-surface-rule)] dark:hover:bg-[var(--color-surface-1)]">
             <div class="col-span-2 sm:col-span-1">
               <p class="font-eyebrow text-[10px] tracking-[0.3em] uppercase text-amber-600 dark:text-amber-400">
@@ -33,15 +36,15 @@ const certs = [
             </div>
             <div class="col-span-10 sm:col-span-8">
               <h3 class="text-base font-medium tracking-tight text-[var(--color-surface-0)] dark:text-[var(--color-cream-0)] sm:text-lg">
-                {cert.name}
+                {cert.data.name}
               </h3>
               <p class="mt-0.5 font-eyebrow text-[10px] tracking-[0.2em] uppercase text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
-                {cert.issuer}
+                {cert.data.issuer}
               </p>
             </div>
             <div class="col-span-12 sm:col-span-3 sm:text-right">
               <p class="font-display text-2xl font-light tabular-nums text-amber-600 dark:text-amber-400 sm:text-3xl">
-                {cert.year}
+                {cert.data.year}
               </p>
             </div>
           </li>

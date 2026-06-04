@@ -1,20 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import heroPortrait from '../assets/hero-portrait.jpg';
+import heroData from '../data/hero.json';
 
-const stats = [
-  { value: '5+', label: 'Years on Salesforce' },
-  { value: '4', label: 'Salesforce clouds' },
-  { value: '4', label: 'Active certifications' },
-  { value: '1st', label: 'Tech hire on UE team' },
-];
-
-const rotating = [
-  'Agentforce-powered AI agents',
-  'multi-cloud Salesforce ecosystems',
-  'WhatsApp & Genesys integrations',
-  'Experience Cloud portals',
-];
+const { stats, rotating } = heroData;
 ---
 
 <section aria-labelledby="hero-heading" class="relative flex min-h-[90vh] flex-col justify-center overflow-hidden px-6 pt-24 pb-16 sm:px-12 lg:px-16">
@@ -57,7 +46,8 @@ const rotating = [
             <Image
               src={heroPortrait}
               alt="Portrait of Alejandro Garrido"
-              width={288}
+              widths={[160, 192, 240, 288]}
+              sizes="(min-width: 1280px) 288px, (min-width: 1024px) 240px, (min-width: 640px) 192px, 160px"
               height={288}
               loading="eager"
               fetchpriority="high"
@@ -85,7 +75,7 @@ const rotating = [
 
         <p class="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-ink-soft)] dark:text-[var(--color-cream-2)]">
           Senior Salesforce Developer &amp; Project Manager crafting
-          <span class="font-eyebrow text-sm text-amber-700 dark:text-amber-400" data-rotating>
+          <span class="font-eyebrow text-sm text-amber-700 dark:text-amber-400" data-rotating data-phrases={JSON.stringify(rotating)}>
             Agentforce-powered AI agents
           </span>
           <span data-typed-cursor class="cursor-blink text-amber-500"></span>
@@ -138,16 +128,16 @@ const rotating = [
   </div>
 </section>
 
-<script define:vars={{ phrases: rotating }}>
-  const el = document.querySelector('[data-rotating]');
+<script type="module">
+  const el = document.querySelector('[data-rotating]') as HTMLElement | null;
   if (el) {
+    const phrases: string[] = JSON.parse(el.dataset.phrases || '[]');
     let i = 0;
     let charIndex = 0;
     let deleting = false;
 
     const tick = () => {
       const phrase = phrases[i];
-      const current = el.textContent || '';
       if (!deleting) {
         el.textContent = phrase.slice(0, charIndex + 1);
         charIndex++;

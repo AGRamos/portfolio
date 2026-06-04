@@ -9,5 +9,6 @@
     "Led the transformation of legacy on-premise systems to a SaaS model on Salesforce",
     "Designed and delivered new B2B processes on Sales Cloud, Service Cloud, and Vlocity"
   ],
-  "technologies": ["Apex", "LWC", "Vlocity / OmniStudio", "Sales Cloud", "Service Cloud", "B2B Commerce"]
+  "technologies": ["Apex", "LWC", "Vlocity / OmniStudio", "Sales Cloud", "Service Cloud", "B2B Commerce"],
+  "order": 2
 }

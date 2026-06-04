@@ -11,5 +11,6 @@
     "Developed the direct-debit and credit-card subscription billing integration for tuition payment flows",
     "Pioneered Agentforce for WhatsApp at the university, orchestrating AI agents to handle student conversations autonomously"
   ],
-  "technologies": ["Apex", "LWC", "Agentforce", "Flows", "Experience Cloud", "Sales Cloud", "Service Cloud", "Marketing Cloud", "Azure DevOps", "GitHub Actions"]
+  "technologies": ["Apex", "LWC", "Agentforce", "Flows", "Experience Cloud", "Sales Cloud", "Service Cloud", "Marketing Cloud", "Azure DevOps", "GitHub Actions"],
+  "order": 1
 }
