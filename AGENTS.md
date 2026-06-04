@@ -36,7 +36,7 @@ src/
   layouts/       # Layout.astro (only)
   pages/         # index.astro, 404.astro, blog/index.astro, blog/[...slug].astro, rss.xml.ts
   styles/        # global.css only
-public/          # favicon.svg, og-image.png, cv.pdf, robots.txt, fonts/ (self-hosted WOFF2)
+public/          # favicon.svg, og-image.png, robots.txt, fonts/ (self-hosted WOFF2)
 ```
 
 ## Conventions
