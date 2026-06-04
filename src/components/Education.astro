@@ -1,22 +1,13 @@
 ---
-const degrees = [
-  {
-    year: '2021—2022',
-    yearDisplay: '21—22',
-    degree: 'MSc Data Science & Business Analytics',
-    institution: 'Universidad de Castilla la Mancha',
-    detail: 'Statistical modeling, machine learning, and applied analytics with R. Capstone focused on applied predictive modeling.',
-    tags: ['R', 'Statistics', 'Machine Learning', 'Predictive Modeling'],
-  },
-  {
-    year: '2018—2020',
-    yearDisplay: '18—20',
-    degree: 'CFGS Multi-platform Application Development',
-    institution: 'I.E.S. Ribera del Tajo',
-    detail: 'Two-year higher-grade vocational degree covering Java, .NET, mobile, databases, and systems. The foundation everything else is built on.',
-    tags: ['Java', '.NET', 'SQL', 'Mobile', 'Systems'],
-  },
-];
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  degrees: CollectionEntry<'education'>[];
+}
+
+const { degrees } = Astro.props;
+
+const sorted = [...degrees].sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 ---
 
 <section aria-labelledby="education-heading" class="relative border-t border-[var(--color-cream-rule)] dark:border-[var(--color-surface-rule)] px-6 py-24 sm:px-12 lg:px-16">
@@ -36,30 +27,30 @@ const degrees = [
       </div>
 
       <ul class="col-span-12 grid gap-px sm:grid-cols-2 lg:col-span-9 fade-up" style="transition-delay: 120ms;">
-        {degrees.map((d, i) => (
+        {sorted.map((d, i) => (
           <li class="group relative flex flex-col border border-[var(--color-cream-rule)] bg-[var(--color-cream-1)] p-7 transition-all duration-300 hover:border-amber-400 hover:bg-[var(--color-cream-0)] dark:border-[var(--color-surface-rule)] dark:bg-[var(--color-surface-1)] dark:hover:border-amber-600 dark:hover:bg-[var(--color-surface-2)] sm:p-8">
             <div class="flex items-baseline justify-between">
               <p class="font-eyebrow text-[10px] tracking-[0.3em] uppercase text-amber-600 dark:text-amber-400">
-                {String(i + 1).padStart(2, '0')} / {degrees.length}
+                {String(i + 1).padStart(2, '0')} / {sorted.length}
               </p>
               <p class="font-display text-2xl font-light tabular-nums tracking-tight text-[var(--color-surface-0)] dark:text-[var(--color-cream-0)] sm:text-3xl">
-                {d.yearDisplay}
+                {d.data.yearDisplay}
               </p>
             </div>
 
             <h3 class="mt-6 font-display text-2xl font-light leading-tight tracking-tight sm:text-3xl">
-              {d.degree}
+              {d.data.degree}
             </h3>
             <p class="mt-2 font-display text-base italic text-amber-600 dark:text-amber-400 sm:text-lg">
-              {d.institution}
+              {d.data.institution}
             </p>
 
             <p class="mt-4 text-sm leading-relaxed text-[var(--color-ink-soft)] dark:text-[var(--color-cream-2)]">
-              {d.detail}
+              {d.data.detail}
             </p>
 
             <ul class="mt-6 flex flex-wrap gap-x-3 gap-y-1.5 border-t border-[var(--color-cream-rule)] pt-4 dark:border-[var(--color-surface-rule)]">
-              {d.tags.map((tag) => (
+              {d.data.tags.map((tag: string) => (
                 <li class="font-eyebrow text-[10px] tracking-wider text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
                   <span class="text-amber-500">·</span> {tag}
                 </li>

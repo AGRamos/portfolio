@@ -8,5 +8,6 @@
     "Worked on the Repsol account within Accenture's Salesforce practice",
     "Delivered custom Salesforce solutions and integrations as part of a multidisciplinary consulting team"
   ],
-  "technologies": ["Apex", "LWC", "Sales Cloud", "Service Cloud", "Integration APIs"]
+  "technologies": ["Apex", "LWC", "Sales Cloud", "Service Cloud", "Integration APIs"],
+  "order": 3
 }

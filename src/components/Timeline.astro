@@ -8,7 +8,7 @@ interface Props {
 const { experiences } = Astro.props;
 
 const sorted = [...experiences].sort(
-  (a, b) => b.data.startDate.localeCompare(a.data.startDate),
+  (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0) || b.data.startDate.localeCompare(a.data.startDate),
 );
 
 const formatDate = (dateStr: string) => {

@@ -11,6 +11,7 @@ const experience = defineCollection({
     location: z.string(),
     achievements: z.array(z.string()),
     technologies: z.array(z.string()).optional(),
+    order: z.number().default(0),
   }),
 });
 
@@ -40,4 +41,47 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { experience, projects, blog };
+const certifications = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/certifications' }),
+  schema: z.object({
+    name: z.string(),
+    issuer: z.string(),
+    year: z.string(),
+    url: z.string().url().optional(),
+  }),
+});
+
+const education = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/education' }),
+  schema: z.object({
+    year: z.string(),
+    yearDisplay: z.string(),
+    degree: z.string(),
+    institution: z.string(),
+    detail: z.string(),
+    tags: z.array(z.string()),
+    order: z.number().default(0),
+  }),
+});
+
+const testimonials = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/testimonials' }),
+  schema: z.object({
+    quote: z.string(),
+    author: z.string(),
+    role: z.string(),
+    order: z.number().default(0),
+  }),
+});
+
+const now = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/now' }),
+  schema: z.object({
+    label: z.string(),
+    value: z.string(),
+    detail: z.string(),
+    order: z.number().default(0),
+  }),
+});
+
+export const collections = { experience, projects, blog, certifications, education, testimonials, now };

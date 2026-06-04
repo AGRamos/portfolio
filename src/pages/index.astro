@@ -9,11 +9,16 @@ import Education from '../components/Education.astro';
 import Skills from '../components/Skills.astro';
 import Projects from '../components/Projects.astro';
 import Certifications from '../components/Certifications.astro';
+import Testimonials from '../components/Testimonials.astro';
 import Contact from '../components/Contact.astro';
 import { getCollection } from 'astro:content';
 
 const experiences = await getCollection('experience');
 const projects = await getCollection('projects');
+const certifications = await getCollection('certifications');
+const degrees = await getCollection('education');
+const testimonials = await getCollection('testimonials');
+const nowItems = await getCollection('now');
 ---
 
 <Layout title="Alejandro Garrido — Senior Salesforce Developer & Technical Lead" description="Senior Salesforce Developer and Project Manager building Agentforce-powered AI systems, multi-cloud ecosystems, and full-stack LWC experiences.">
@@ -21,12 +26,13 @@ const projects = await getCollection('projects');
   <ScrollProgress />
   <main class="grain">
     <Hero />
-    <Now />
+    <Now nowItems={nowItems} lastUpdated="June 2026" />
     <Timeline experiences={experiences} />
-    <Education />
+    <Education degrees={degrees} />
     <Skills />
     <Projects projects={projects} />
-    <Certifications />
+    <Certifications certifications={certifications} />
+    <Testimonials testimonials={testimonials} />
     <Contact />
   </main>
 </Layout>
