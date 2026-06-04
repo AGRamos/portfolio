@@ -5,6 +5,7 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   site: 'https://agramos.github.io/portfolio-opencode',
+  base: '/portfolio-opencode',
   vite: {
     plugins: [tailwindcss()],
   },
