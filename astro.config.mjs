@@ -4,8 +4,8 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: 'https://agramos.github.io/portfolio-opencode',
-  base: '/portfolio-opencode',
+  site: 'https://agramos.github.io/portfolio',
+  base: '/portfolio',
   vite: {
     plugins: [tailwindcss()],
   },

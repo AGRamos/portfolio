@@ -3,7 +3,7 @@
 ## Stack
 - **Astro v6** + **Tailwind v4** wired via the `@tailwindcss/vite` plugin in `astro.config.mjs` (NOT `@astrojs/tailwind` — see Gotchas).
 - Tailwind v4 has no `tailwind.config.mjs`. All design tokens (colors, fonts, animations) live in `src/styles/global.css` under `@theme {}` and `@layer utilities`.
-- Content is fully JSON/MD-driven via Astro Content Collections. Astro site URL is set to `https://agramos.github.io/portfolio-opencode` in `astro.config.mjs` — canonical/OG/RSS URLs resolve there even in `dev`.
+- Content is fully JSON/MD-driven via Astro Content Collections. Astro site URL is set to `https://agramos.github.io/portfolio` in `astro.config.mjs` — canonical/OG/RSS URLs resolve there even in `dev`.
 
 ## Commands
 - `npm run dev` — dev server on `http://localhost:4321/`
