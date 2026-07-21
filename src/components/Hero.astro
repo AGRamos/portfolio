@@ -130,9 +130,10 @@ const { stats, rotating } = heroData;
   </div>
 </section>
 
-<script type="module">
+<script>
   const el = document.querySelector('[data-rotating]') as HTMLElement | null;
-  if (el) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (el && !reduceMotion) {
     const phrases: string[] = JSON.parse(el.dataset.phrases || '[]');
     let i = 0;
     let charIndex = 0;
@@ -160,6 +161,8 @@ const { stats, rotating } = heroData;
       setTimeout(tick, delay);
     };
 
-    setTimeout(tick, 800);
+    if (phrases.length > 0) {
+      setTimeout(tick, 800);
+    }
   }
 </script>

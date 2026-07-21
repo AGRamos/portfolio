@@ -1,12 +1,12 @@
 # Portfolio OpenCode
 
-A blazing-fast, fully responsive personal portfolio and resume website built with Astro and Tailwind CSS v4. Static-first, zero client-side JavaScript by default, targeting 100/100 Lighthouse scores.
+A blazing-fast, fully responsive personal portfolio and resume website built with Astro and Tailwind CSS v4. Static-first with minimal client-side JavaScript (theme toggle, scroll progress, typewriter effect), targeting 100/100 Lighthouse scores.
 
 ## Tech Stack
 
-- **Astro v6** — Static Site Generation with zero-JS by default
+- **Astro v6** — Static Site Generation, minimal client-side JS
 - **Tailwind CSS v4** — Utility-first styling via `@tailwindcss/vite`, mobile-first approach
-- **Content Collections** — JSON-driven experience and projects data in `src/content/`
+- **Content Collections** — JSON/Markdown-driven content in `src/content/` (experience, projects, blog, certifications, education, testimonials, now)
 - **Dark/Light Mode** — Seamless theme toggle with `localStorage` persistence and `prefers-color-scheme` fallback
 
 ## Project Structure
@@ -20,7 +20,13 @@ src/
 ├── content/
 │   ├── experience/             # JSON files per role
 │   ├── projects/               # JSON files per project
-│   └── blog/                   # .md / .mdx writing
+│   ├── blog/                   # .md / .mdx writing
+│   ├── certifications/         # JSON files per credential
+│   ├── education/              # JSON files per degree
+│   ├── testimonials/           # JSON files per quote
+│   └── now/                    # JSON files for the "Currently" section
+├── data/
+│   └── hero.json               # Hero stats + rotating phrases
 ├── layouts/
 │   └── Layout.astro            # Base HTML layout with theme script
 ├── pages/
@@ -42,8 +48,10 @@ All portfolio content lives under `src/content/`. To add or update:
 - **Experience** — Add/edit JSON files in `src/content/experience/`. Each entry supports `role`, `company`, `startDate`, `endDate`, `location`, `achievements`, and `technologies`.
 - **Projects** — Add/edit JSON files in `src/content/projects/`. Each entry supports `title`, `description`, `technologies`, `github`, `live`, `featured`, `order`, and `summary`.
 - **Writing** — Add `.md` or `.mdx` files in `src/content/blog/`. Frontmatter: `title`, `description`, `pubDate`, `updatedDate?`, `draft`, `tags`. Set `draft: true` to hide from `/blog/` and `/rss.xml`.
+- **Certifications / Education / Testimonials / Now** — JSON files in their respective `src/content/` folders, each sorted by an `order` field.
+- **Hero** — Stats and rotating typewriter phrases live in `src/data/hero.json`.
 
-No need to touch any component code — just edit the data files.
+No need to touch any component code — just edit the data files. Schemas in `src/content.config.ts` validate everything at build time.
 
 ## Commands
 

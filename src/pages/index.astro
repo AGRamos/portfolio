@@ -19,12 +19,35 @@ const certifications = await getCollection('certifications');
 const degrees = await getCollection('education');
 const testimonials = await getCollection('testimonials');
 const nowItems = await getCollection('now');
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Alejandro Garrido',
+  jobTitle: 'Senior Salesforce Developer & Technical Lead',
+  url: Astro.site?.toString(),
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Alcorcón',
+    addressRegion: 'Madrid',
+    addressCountry: 'ES',
+  },
+  worksFor: { '@type': 'Organization', name: 'Accenture' },
+  sameAs: ['https://linkedin.com/in/alejandrogrd', 'https://github.com/AGRamos'],
+  knowsAbout: ['Salesforce', 'Agentforce', 'LLM Engineering', 'Lightning Web Components', 'AI Agents'],
+};
 ---
 
 <Layout title="Alejandro Garrido — Senior Salesforce Developer & Technical Lead" description="Senior Salesforce Developer and Project Manager building Agentforce-powered AI systems, multi-cloud ecosystems, and full-stack LWC experiences.">
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-sm focus:bg-amber-500 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-[var(--color-surface-0)]"
+  >
+    Skip to content
+  </a>
   <ThemeToggle />
   <ScrollProgress />
-  <main class="grain">
+  <main id="main-content" class="grain">
     <Hero />
     <Now nowItems={nowItems} lastUpdated="June 2026" />
     <Timeline experiences={experiences} />
@@ -35,4 +58,5 @@ const nowItems = await getCollection('now');
     <Testimonials testimonials={testimonials} />
     <Contact />
   </main>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 </Layout>

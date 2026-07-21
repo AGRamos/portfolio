@@ -16,6 +16,9 @@ dist/
 Thumbs.db
 desktop.ini
 
+# Claude Code local state (worktrees, launch config)
+.claude/
+
 # IDE
 .vscode/
 .idea/

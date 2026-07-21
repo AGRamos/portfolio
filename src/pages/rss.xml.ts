@@ -21,11 +21,14 @@ export const GET: APIRoute = async (context) => {
     .join('');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Alejandro Garrido — Writing</title>
     <description>Notes on Salesforce, Agentforce, AI, and building software in production.</description>
     <link>${site}</link>
+    <language>en</language>
+    <atom:link href="${site}rss.xml" rel="self" type="application/rss+xml"/>${posts.length > 0 ? `
+    <lastBuildDate>${posts[0].data.pubDate.toUTCString()}</lastBuildDate>` : ''}
     ${items}
   </channel>
 </rss>`;
