@@ -27,12 +27,12 @@ const socials = [
         </p>
 
         <a
-          id="contact-email"
-          href="#"
+          href="https://linkedin.com/in/alejandrogrd"
+          target="_blank"
+          rel="noopener noreferrer"
           class="group mt-10 inline-flex items-baseline gap-3 font-display text-2xl font-light tracking-tight text-[var(--color-surface-0)] transition-colors hover:text-amber-600 dark:text-[var(--color-cream-0)] dark:hover:text-amber-400 sm:text-3xl lg:text-4xl"
         >
-          <span class="border-b-2 border-current pb-1 transition-colors group-hover:border-amber-500" data-email-user="redacted" data-email-domain="gmail.com">
-          </span>
+          <span class="border-b-2 border-current pb-1 transition-colors group-hover:border-amber-500">Message me on LinkedIn</span>
           <svg class="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
             <path d="M7 17L17 7M7 7h10v10" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -78,15 +78,3 @@ const socials = [
     </p>
   </div>
 </footer>
-
-<script type="module">
-  const link = document.getElementById('contact-email');
-  const text = link?.querySelector('[data-email-user]') as HTMLElement | null;
-  if (link && text) {
-    const u = text.dataset.emailUser!;
-    const d = text.dataset.emailDomain!;
-    const addr = `${u}@${d}`;
-    link.href = `mailto:${addr}`;
-    text.textContent = addr;
-  }
-</script>
