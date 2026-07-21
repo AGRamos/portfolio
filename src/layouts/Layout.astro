@@ -6,10 +6,12 @@ interface Props {
   type?: 'website' | 'article';
 }
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const {
   title,
   description = 'Senior Salesforce Developer & Technical Lead building autonomous AI systems, agentic experiences, and modern web architecture.',
-  image = '/og-image.png',
+  image = `${base}/og-image.png`,
   type = 'website',
 } = Astro.props;
 
