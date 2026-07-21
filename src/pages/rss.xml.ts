@@ -5,7 +5,7 @@ export const GET: APIRoute = async (context) => {
   const posts = (await getCollection('blog', ({ data }) => !data.draft))
     .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
-  const site = context.site?.toString() ?? 'https://agramos.github.io/portfolio/';
+  const site = (context.site?.toString() ?? 'https://agramos.github.io/portfolio/').replace(/\/?$/, '/');
 
   const items = posts
     .map(
