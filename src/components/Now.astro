@@ -4,9 +4,10 @@ import type { CollectionEntry } from 'astro:content';
 interface Props {
   nowItems: CollectionEntry<'now'>[];
   lastUpdated?: string;
+  lastUpdatedISO?: string;
 }
 
-const { nowItems, lastUpdated } = Astro.props;
+const { nowItems, lastUpdated, lastUpdatedISO } = Astro.props;
 
 const sorted = [...nowItems].sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 ---
@@ -15,14 +16,14 @@ const sorted = [...nowItems].sort((a, b) => (a.data.order ?? 0) - (b.data.order 
   <div class="mx-auto w-full max-w-7xl">
     <div class="grid grid-cols-12 gap-y-8 lg:gap-x-8">
       <div class="col-span-12 lg:col-span-3 fade-up">
-        <p class="font-eyebrow text-[10px] tracking-[0.35em] uppercase text-amber-600 dark:text-amber-400">
+        <p class="font-eyebrow text-[10px] tracking-[0.35em] uppercase text-amber-700 dark:text-amber-400">
           № 02 / Now
         </p>
         <h2 id="now-heading" class="mt-3 font-display text-3xl font-light tracking-tight sm:text-4xl">
           Currently
         </h2>
         <p class="mt-3 max-w-xs text-sm leading-relaxed text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
-          What I'm doing, building, and learning right now{lastUpdated && <>. Updated <time>{lastUpdated}</time></>}.
+          What I’m doing, building, and learning right now{lastUpdated && <>. Updated <time datetime={lastUpdatedISO}>{lastUpdated}</time></>}.
         </p>
       </div>
 
@@ -30,7 +31,7 @@ const sorted = [...nowItems].sort((a, b) => (a.data.order ?? 0) - (b.data.order 
         {sorted.map((item) => (
           <li class="group grid grid-cols-12 gap-4 py-6 transition-colors duration-300 sm:py-7">
             <div class="col-span-12 sm:col-span-3">
-              <p class="font-eyebrow text-[10px] tracking-[0.3em] uppercase text-amber-600 dark:text-amber-400">
+              <p class="font-eyebrow text-[10px] tracking-[0.3em] uppercase text-amber-700 dark:text-amber-400">
                 {item.data.label}
               </p>
             </div>

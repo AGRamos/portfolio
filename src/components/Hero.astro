@@ -24,7 +24,7 @@ const { stats, rotating } = heroData;
   <div class="relative z-10 mx-auto w-full max-w-7xl">
     <div class="grid grid-cols-12 gap-y-12 lg:gap-x-8">
       <div class="col-span-12 lg:col-span-3 fade-up" style="transition-delay: 0ms;">
-        <p class="font-eyebrow text-[10px] tracking-[0.35em] uppercase text-amber-600 dark:text-amber-400">
+        <p class="font-eyebrow text-[10px] tracking-[0.35em] uppercase text-amber-700 dark:text-amber-400">
           № 01 / Portfolio
         </p>
         <p class="mt-2 font-eyebrow text-[10px] tracking-[0.2em] uppercase text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
@@ -56,13 +56,13 @@ const { stats, rotating } = heroData;
           </div>
           <figcaption class="font-eyebrow text-[10px] tracking-[0.25em] uppercase text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)] lg:mt-4">
             <span class="block">Alejandro G.</span>
-            <span class="mt-1 block text-[9px] text-amber-600 dark:text-amber-400">Sr. Salesforce Dev</span>
+            <span class="mt-1 block text-[9px] text-amber-700 dark:text-amber-400">Sr. Salesforce Dev</span>
           </figcaption>
         </figure>
       </div>
 
       <div class="col-span-12 lg:col-span-6 fade-up" style="transition-delay: 100ms;">
-        <p class="font-eyebrow text-xs tracking-widest text-amber-600 dark:text-amber-400">
+        <p class="font-eyebrow text-xs tracking-widest text-amber-700 dark:text-amber-400">
           &gt; Hello, world_
         </p>
         <h1
@@ -74,12 +74,8 @@ const { stats, rotating } = heroData;
         </h1>
 
         <p class="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-ink-soft)] dark:text-[var(--color-cream-2)]">
-          Senior Salesforce Developer &amp; Project Manager crafting
-          <span class="font-eyebrow text-sm text-amber-700 dark:text-amber-400" data-rotating data-phrases={JSON.stringify(rotating)}>
-            Agentforce-powered AI agents
-          </span>
-          <span data-typed-cursor class="cursor-blink text-amber-500"></span>
-          and full-stack LWC experiences for ambitious teams.
+          Senior Salesforce Developer &amp; AI Engineer crafting full-stack LWC experiences and
+          <span class="font-eyebrow text-sm text-amber-700 dark:text-amber-400" data-rotating data-phrases={JSON.stringify(rotating)}>{rotating[0]}</span><span data-typed-cursor class="cursor-blink text-amber-500"></span>
         </p>
 
         <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -94,9 +90,9 @@ const { stats, rotating } = heroData;
           </a>
           <a
             href="#contact"
-            class="group inline-flex items-center gap-2 px-3 py-3.5 text-sm font-medium tracking-wide text-[var(--color-ink-soft)] transition-colors duration-300 hover:text-amber-600 dark:text-[var(--color-cream-2)] dark:hover:text-amber-400"
+            class="group inline-flex items-center gap-2 px-3 py-3.5 text-sm font-medium tracking-wide text-[var(--color-ink-soft)] transition-colors duration-300 hover:text-amber-700 dark:text-[var(--color-cream-2)] dark:hover:text-amber-400"
           >
-            <span class="font-eyebrow text-[10px] tracking-[0.3em] uppercase text-amber-600 dark:text-amber-400 transition-colors group-hover:text-amber-500">
+            <span class="font-eyebrow text-[10px] tracking-[0.3em] uppercase text-amber-700 dark:text-amber-400 transition-colors group-hover:text-amber-600">
               →
             </span>
             <span class="border-b border-current pb-0.5">Get in touch</span>
@@ -110,12 +106,12 @@ const { stats, rotating } = heroData;
         </p>
         <dl class="mt-6 space-y-5">
           {stats.map((s) => (
-            <div class="group">
-              <dt class="font-display text-4xl font-light leading-none tracking-tight text-[var(--color-surface-0)] dark:text-[var(--color-cream-0)] sm:text-5xl">
-                {s.value}
-              </dt>
-              <dd class="mt-1 text-xs font-medium text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
+            <div class="group flex flex-col-reverse gap-1">
+              <dt class="text-xs font-medium text-[var(--color-ink-mute)] dark:text-[var(--color-cream-3)]">
                 {s.label}
+              </dt>
+              <dd class="font-display text-4xl font-light leading-none tracking-tight tabular-nums text-[var(--color-surface-0)] dark:text-[var(--color-cream-0)] sm:text-5xl">
+                {s.value}
               </dd>
             </div>
           ))}

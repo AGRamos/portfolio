@@ -4,15 +4,19 @@ interface Props {
   description?: string;
   image?: string;
   type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
 }
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const {
   title,
-  description = 'Senior Salesforce Developer & Technical Lead building autonomous AI systems, agentic experiences, and modern web architecture.',
+  description = 'Senior Salesforce Developer & AI Engineer building autonomous AI systems, agentic experiences, and modern web architecture.',
   image = `${base}/og-image.png`,
   type = 'website',
+  publishedTime,
+  modifiedTime,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://example.com');
@@ -33,8 +37,8 @@ const fullImage = new URL(image, Astro.site ?? 'https://example.com').toString()
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <link rel="sitemap" href={`${base}/sitemap-index.xml`} />
     <link rel="alternate" type="application/rss+xml" title="Writing" href={`${base}/rss.xml`} />
-    <link rel="webmention" href="https://webmention.io/agramos.github.io/webmention" />
-    <link rel="pingback" href="https://webmention.io/agramos.github.io/xmlrpc" />
+    <link rel="preload" as="font" type="font/woff2" href={`${base}/fonts/dm-sans-normal.woff2`} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={`${base}/fonts/fraunces-normal.woff2`} crossorigin />
     <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#fafaf8" media="(prefers-color-scheme: light)" />
     <meta name="color-scheme" content="light dark" />
@@ -46,6 +50,8 @@ const fullImage = new URL(image, Astro.site ?? 'https://example.com').toString()
     <meta property="og:image" content={fullImage} />
     <meta property="og:url" content={canonicalURL.toString()} />
     <meta property="og:locale" content="en_US" />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />

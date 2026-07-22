@@ -5,7 +5,7 @@ pubDate: 2026-01-15
 tags: ["agentforce", "certification", "salesforce", "ai"]
 ---
 
-I passed the Agentforce Specialist exam in early 2024, after spending most of the previous month building Agentforce implementations in production. These notes are the things I wish I'd known going in — not a brain dump, but a study guide shaped by what the exam actually tests.
+I passed the Agentforce Specialist exam in early 2025, after spending most of the previous month building Agentforce implementations in production. These notes are the things I wish I’d known going in — not a brain dump, but a study guide shaped by what the exam actually tests.
 
 ## What the exam is, in plain English
 

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Tailwind v4 defaults `dark:` to prefers-color-scheme; this site toggles a
+   .dark class on <html>, so the variant must follow the class instead. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: "DM Sans";
   font-style: normal;
@@ -127,6 +131,27 @@
   html {
     scroll-behavior: smooth;
   }
+}
+
+html {
+  color-scheme: light;
+  -webkit-tap-highlight-color: transparent;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+a, button {
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-amber-500);
+  outline-offset: 2px;
 }
 
 body {

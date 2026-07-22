@@ -23,6 +23,7 @@ const projects = defineCollection({
     technologies: z.array(z.string()),
     github: z.string().url().optional(),
     live: z.string().url().optional(),
+    caseStudy: z.string().optional(),
     featured: z.boolean().default(false),
     order: z.number().default(0),
     summary: z.string().optional(),
@@ -48,6 +49,7 @@ const certifications = defineCollection({
     issuer: z.string(),
     year: z.string(),
     url: z.string().url().optional(),
+    order: z.number().default(0),
   }),
 });
 
@@ -64,16 +66,6 @@ const education = defineCollection({
   }),
 });
 
-const testimonials = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/testimonials' }),
-  schema: z.object({
-    quote: z.string(),
-    author: z.string(),
-    role: z.string(),
-    order: z.number().default(0),
-  }),
-});
-
 const now = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/now' }),
   schema: z.object({
@@ -84,4 +76,4 @@ const now = defineCollection({
   }),
 });
 
-export const collections = { experience, projects, blog, certifications, education, testimonials, now };
+export const collections = { experience, projects, blog, certifications, education, now };

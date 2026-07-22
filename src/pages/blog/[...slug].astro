@@ -14,14 +14,37 @@ const { Content } = await render(post);
 const formatDate = (date: Date) =>
   date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
+const postSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString(),
+  ...(post.data.updatedDate && { dateModified: post.data.updatedDate.toISOString() }),
+  author: { '@type': 'Person', name: 'Alejandro Garrido' },
+  url: new URL(Astro.url.pathname, Astro.site).toString(),
+};
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<Layout title={`${post.data.title} — Alejandro Garrido`} description={post.data.description}>
+<Layout
+  title={`${post.data.title} — Alejandro Garrido`}
+  description={post.data.description}
+  type="article"
+  publishedTime={post.data.pubDate.toISOString()}
+  modifiedTime={post.data.updatedDate?.toISOString()}
+>
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-sm focus:bg-amber-500 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-[var(--color-surface-0)]"
+  >
+    Skip to content
+  </a>
   <ScrollProgress />
-  <main class="grain min-h-screen px-6 py-24 sm:px-12 lg:px-16">
+  <main id="main-content" class="grain min-h-screen px-6 py-24 sm:px-12 lg:px-16">
     <article class="mx-auto w-full max-w-3xl">
-      <a href={`${base}/blog/`} class="inline-flex items-center gap-2 font-eyebrow text-[10px] tracking-[0.2em] uppercase text-[var(--color-ink-mute)] transition-colors hover:text-amber-600 dark:text-[var(--color-cream-3)] dark:hover:text-amber-400">
+      <a href={`${base}/blog/`} class="inline-flex items-center gap-2 font-eyebrow text-[10px] tracking-[0.2em] uppercase text-[var(--color-ink-mute)] transition-colors hover:text-amber-700 dark:text-[var(--color-cream-3)] dark:hover:text-amber-400">
         <span>←</span> All writing
       </a>
 
@@ -48,6 +71,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </div>
     </article>
   </main>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(postSchema)} />
 </Layout>
 
 <style is:global>
@@ -72,12 +96,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .dark .prose h3 { color: var(--color-cream-0); }
   .prose p { margin-bottom: 1.25rem; line-height: 1.75; }
   .prose a {
-    color: var(--color-amber-600);
+    color: var(--color-amber-700);
     text-decoration: underline;
     text-underline-offset: 3px;
   }
   .dark .prose a { color: var(--color-amber-400); }
-  .prose a:hover { color: var(--color-amber-500); }
+  .prose a:hover { color: var(--color-amber-600); }
+  .dark .prose a:hover { color: var(--color-amber-300); }
   .prose code {
     font-family: var(--font-mono);
     font-size: 0.9em;
