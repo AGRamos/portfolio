@@ -18,7 +18,7 @@
   - `experience` — JSON files in `src/content/experience/` (role, company, startDate, endDate?, location, achievements[], technologies?, order?). Sorted in `Timeline.astro` by `order` then `startDate` descending.
   - `projects` — JSON files in `src/content/projects/` (title, description, technologies[], github?, live?, caseStudy?, featured, order, summary?). Sorted in `Projects.astro` by `order`. `caseStudy` is a site-relative path (e.g. a blog post) — `Projects.astro` prefixes it with the base.
   - `blog` — `.md` / `.mdx` files in `src/content/blog/` (title, description, pubDate, updatedDate?, draft, tags[]). Rendered via `src/pages/blog/index.astro` and `src/pages/blog/[...slug].astro` (posts emit `og:type=article`, `article:published_time`, and BlogPosting JSON-LD). RSS feed at `/rss.xml` (see `src/pages/rss.xml.ts`) and `draft: true` posts are excluded.
-  - `certifications` — JSON files in `src/content/certifications/` (name, issuer, year, url?, order). Sorted by `order`.
+  - `certifications` — JSON files in `src/content/certifications/` (name, issuer, year, url?, order). Sorted by `year` descending, then `order` as tiebreaker within a year.
   - `education` — JSON files in `src/content/education/` (year, yearDisplay, degree, institution, detail, tags[], order). Sorted by `order` (chronological, oldest first).
   - `now` — JSON files in `src/content/now/` (label, value, detail, order). Sorted by `order`. The "Updated <month>" note is computed from the build date in `index.astro`.
 - There is deliberately NO testimonials section — placeholder quotes were removed; don't reintroduce testimonials without real, verifiable quotes from the owner.

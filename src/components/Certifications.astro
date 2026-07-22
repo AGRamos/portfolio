@@ -7,7 +7,9 @@ interface Props {
 
 const { certifications } = Astro.props;
 
-const sorted = [...certifications].sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+const sorted = [...certifications].sort(
+  (a, b) => b.data.year.localeCompare(a.data.year) || (a.data.order ?? 0) - (b.data.order ?? 0),
+);
 ---
 
 <section aria-labelledby="cert-heading" class="relative border-t border-[var(--color-cream-rule)] dark:border-[var(--color-surface-rule)] px-6 py-24 sm:px-12 lg:px-16">
